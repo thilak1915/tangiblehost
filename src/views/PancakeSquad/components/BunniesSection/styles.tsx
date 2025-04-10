@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export const StyledBunnySectionContainer = styled(Flex)`
   position: relative;
-  background: ${({ theme }) => theme.colors.gradientBubblegum};
+  background: linear-gradient(139.73deg, #e5fdff 0%, #f3efff 100%); ;
 `
 
 export const StyledImageContainer = styled(Flex)`

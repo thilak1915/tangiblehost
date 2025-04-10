@@ -8,7 +8,7 @@ import IfoPoolVaultCard from './IfoPoolVaultCard'
 import IfoQuestions from './IfoQuestions'
 
 const IfoStepBackground = styled(Box)`
-  background: ${({ theme }) => theme.colors.gradientBubblegum};
+  background: linear-gradient(139.73deg, #e5fdff 0%, #f3efff 100%);
 `
 
 interface TypeProps {

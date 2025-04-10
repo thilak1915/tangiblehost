@@ -116,7 +116,7 @@ const ChainlinkChartWrapper = styled(Flex)<{ isMobile?: boolean }>`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background: ${({ theme, isMobile }) => (isMobile ? theme.card.background : theme.colors.gradientBubblegum)};
+  background: linear-gradient(139.73deg, #e5fdff 0%, #f3efff 100%);
 `
 
 const HoverData = ({ rounds }: { rounds: { [key: string]: NodeRound } }) => {

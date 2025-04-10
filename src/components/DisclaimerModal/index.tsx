@@ -29,14 +29,12 @@ interface RiskDisclaimerProps extends InjectedModalProps {
   subtitle?: string
 }
 
+// ✅ Using hardcoded gradient instead of theme.colors.gradientBubblegum
 const GradientModalHeader = styled(ModalHeader)`
-  background: ${({ theme }) => theme.colors.gradientBubblegum};
+  background: linear-gradient(139.73deg, #e5fdff 0%, #f3efff 100%);
   padding-bottom: 24px;
   padding-top: 24px;
 `
-
-// TODO: Copy from src/views/Predictions/components/RiskDisclaimer.tsx
-// Will replace that with this modal.
 
 const DisclaimerModal: React.FC<React.PropsWithChildren<RiskDisclaimerProps>> = ({
   id,

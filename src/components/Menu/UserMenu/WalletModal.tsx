@@ -33,7 +33,7 @@ interface WalletModalProps extends InjectedModalProps {
 export const LOW_BNB_BALANCE = parseUnits('2', 'gwei')
 
 const ModalHeader = styled(UIKitModalHeader)`
-  background: ${({ theme }) => theme.colors.gradientBubblegum};
+  background: linear-gradient(139.73deg, #e5fdff 0%, #f3efff 100%);
 `
 
 const Tabs = styled.div`

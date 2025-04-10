@@ -71,7 +71,8 @@ const WalletStatsModal: React.FC<React.PropsWithChildren<WalletStatsModalProps>>
 
   return (
     <ModalContainer $minWidth="320px">
-      <ModalHeader background={theme.colors.gradientBubblegum}>
+      background: linear-gradient(139.73deg, #E5FDFF 0%, #F3EFFF 100%);;
+      <ModalHeader>
         <Flex alignItems="center" style={{ flex: 1 }}>
           <Box width={['64px', null, null, null, null, null, '96px']} mr="16px">
             <ProfileAvatar src={profile?.nft?.image?.thumbnail} height={96} width={96} />

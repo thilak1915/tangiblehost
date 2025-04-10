@@ -18,7 +18,7 @@ const WhiteCard = styled.div`
 const StyleTag = styled(Tag)<{ isPrivate: boolean }>`
   font-size: 14px;
   color: ${({ theme }) => theme.colors.text};
-  background: ${({ theme, isPrivate }) => (isPrivate ? theme.colors.gradientBlue : theme.colors.gradientViolet)};
+  background: linear-gradient(139.73deg, #e5fdff 0%, #f3efff 100%);
 `
 
 interface InfoProps {

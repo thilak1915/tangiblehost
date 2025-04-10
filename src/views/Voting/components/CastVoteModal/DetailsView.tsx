@@ -41,7 +41,7 @@ const FixedTermCardInner = styled(Box)<{ expired?: boolean }>`
     height: 100%;
     pointer-events: none;
     border-radius: ${({ theme }) => theme.radii.default};
-    background: ${({ theme, expired }) => (expired ? 'rgba(255, 178, 55, 0.098)' : theme.colors.gradientBubblegum)};
+    background: linear-gradient(139.73deg, #e5fdff 0%, #f3efff 100%);
   }
 `
 

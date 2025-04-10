@@ -1,28 +1,34 @@
 import { createGlobalTheme, createGlobalThemeContract } from '@vanilla-extract/css'
-import deepmerge from 'deepmerge'
-import { Mode, tokens } from '../tokens'
+import { tokens } from '../tokens'
 import type { Theme } from './types'
 
 const getVarName = (_value: string | null, path: string[]) => path.join('-')
 
-const baseTokens: Omit<Theme, 'colors'> = tokens
+// Contract for shared non-color tokens
+const baseTokens: Omit<typeof tokens, 'colors'> = {
+  fonts: tokens.fonts,
+  space: tokens.space,
+  borderWidths: tokens.borderWidths,
+  radii: tokens.radii,
+  fontSizes: tokens.fontSizes,
+  shadows: tokens.shadows,
+}
+
 const baseVars = createGlobalThemeContract(baseTokens, getVarName)
 createGlobalTheme(':root', baseVars, baseTokens)
 
-const makeColorScheme = (mode: Mode = 'light') => {
-  const colors = tokens.colors[mode]
+const lightColors = tokens.colors.light
+const darkColors = tokens.colors.dark
 
-  return {
-    colors,
-  }
-}
-
-const modeTokens = makeColorScheme('light')
-const modeVars = createGlobalThemeContract(modeTokens, getVarName)
-createGlobalTheme('[data-theme="light"]', modeVars, modeTokens)
-createGlobalTheme('[data-theme="dark"]', modeVars, makeColorScheme('dark'))
+const colorVars = createGlobalThemeContract(lightColors, getVarName)
+createGlobalTheme('[data-theme="light"]', colorVars, lightColors)
+createGlobalTheme('[data-theme="dark"]', colorVars, darkColors)
 
 type BaseVars = typeof baseVars
-type ModeVars = typeof modeVars
-type Vars = BaseVars & ModeVars
-export const vars = deepmerge(baseVars, modeVars) as Vars
+type ColorVars = typeof colorVars
+type Vars = BaseVars & { colors: ColorVars }
+
+export const vars = {
+  ...baseVars,
+  colors: colorVars,
+} as Vars
