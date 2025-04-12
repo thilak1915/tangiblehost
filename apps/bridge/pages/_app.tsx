@@ -24,23 +24,49 @@ const StyledThemeProvider: React.FC<React.PropsWithChildren> = (props) => {
 const GlobalStyle = createGlobalStyle`
   * {
     font-family: 'Kanit', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
+
   html, body, #__next {
     height: 100%;
+    width: 100%;
   }
+
   #__next {
     display: flex;
     flex-direction: column;
   }
+
   body {
-    background-color: ${({ theme }) => theme.colors.background};
+    position: relative;
+    z-index: 0;
+    background-color: transparent !important;
+    color: ${({ theme }) => theme.colors.text}; /* Keeps theme text color */
 
     img {
       height: auto;
       max-width: 100%;
     }
   }
-`
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('/image.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1;
+    opacity: 1;
+  }
+  `
 
 function useIsMounted() {
   const [isMounted, setIsMounted] = useState(false)
